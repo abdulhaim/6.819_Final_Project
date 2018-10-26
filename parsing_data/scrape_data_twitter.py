@@ -6,7 +6,6 @@ import csv
 import json
 import wget
 
-
 # Twitter API credentials
 
 with open('twitter_credentials.json') as cred_data:
