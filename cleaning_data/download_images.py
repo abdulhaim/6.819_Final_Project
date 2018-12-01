@@ -12,12 +12,12 @@ df = df.drop(['AutoApprovalDelayInSeconds','Expiration','NumberOfSimilarHITs','L
 #df.loc[df['Answer.Tag2'] == 5, 'Answer.Tag2'] = "moderate" 
 #df.loc[df['Answer.Tag2'] == 6, 'Answer.Tag2'] = "minimal/none"
 #df.loc[df['Answer.Tag2'] == 7, 'Answer.Tag2'] =  "none"
-df.loc[df['Answer.Tag2']=="n/a",'Answer.Tag2'] = "none"
+df.loc[df["Answer.Tag2"] == "n/a","Answer.Tag2"] = "none"
 pickle_file = []
 if not os.path.exists("images"):
         os.makedirs("images")
 for index, row in df.iterrows():
-    print(row["Answer.Tag2"]
+    print(row["Answer.Tag2"])
     directory = "images/" + row["Answer.Tag2"] 
     if not os.path.exists(directory):
         os.makedirs(directory)
