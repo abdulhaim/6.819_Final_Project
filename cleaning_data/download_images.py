@@ -3,7 +3,7 @@ import numpy as np
 import urllib
 import os
 
-df = pd.read_csv('Batch_214780_batch_results-1.csv')
+df = pd.read_csv("Batch_214780_batch_results-1.csv")
 
 df = df.drop(['AutoApprovalDelayInSeconds','Expiration','NumberOfSimilarHITs','LifetimeInSeconds','WorkerId','AssignmentStatus','AcceptTime','SubmitTime','AutoApprovalTime','ApprovalTime','RejectionTime','RequesterFeedback','LifetimeApprovalRate','HITId','HITTypeId','Description','Reward',
             'CreationTime','Last30DaysApprovalRate','MaxAssignments','Answer.Tag1','WorkTimeInSeconds','Title','Keywords','AssignmentDurationInSeconds','RequesterAnnotation','Last7DaysApprovalRate',
@@ -20,6 +20,8 @@ for index, row in df.iterrows():
         os.makedirs(directory)
     url = row['Input.image_url']
     name = directory + '/' +  row["AssignmentId"] + '.jpg'
-    urllib.request.urlretrieve(url, name)
-
+    try:
+	urllib.request.urlretrieve(url, name)
+    except urllib.HTTPError:
+	continue
     
