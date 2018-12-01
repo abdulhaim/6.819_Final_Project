@@ -13,7 +13,7 @@ df = df.drop(['AutoApprovalDelayInSeconds','Expiration','NumberOfSimilarHITs','L
 df.loc[df['Answer.Tag2'] == 4, 'Answer.Tag2'] = "extreme" 
 df.loc[df['Answer.Tag2'] == 5, 'Answer.Tag2'] = "moderate" 
 df.loc[df['Answer.Tag2'] == 6, 'Answer.Tag2'] = "minimal/none"
-df.loc[df['Answer.Tag2'] == 7, 'Answer.Tag2'] =  "n/a"
+df.loc[df['Answer.Tag2'] == 7, 'Answer.Tag2'] =  "none"
 
 pickle_file = []
 if not os.path.exists("images"):
@@ -30,6 +30,6 @@ for index, row in df.iterrows():
     except urllib.error.HTTPError:
         continue
 
-with open("pickle_file", 'wb') as handle:
+with open("pickle_file.pkl", 'wb') as handle:
         pickle.dump(pickle_file, handle, protocol=2)
     
