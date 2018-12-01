@@ -6,7 +6,7 @@ import pickle
 
 # Combining csv's 
 
-df_1 = pd.read_csv("our_labelled_data_271.csv")
+df_1 = pd.read_csv("our_labelled_data_2718.csv")
 df_1 = df_1.drop(['AutoApprovalDelayInSeconds','Expiration','NumberOfSimilarHITs','LifetimeInSeconds','WorkerId','AssignmentStatus','AcceptTime','SubmitTime','AutoApprovalTime','ApprovalTime','RejectionTime','RequesterFeedback','LifetimeApprovalRate','HITId','HITTypeId','Description','Reward', 'CreationTime','Last30DaysApprovalRate','MaxAssignments','Answer.Tag1','WorkTimeInSeconds','Title','Keywords','AssignmentDurationInSeconds','RequesterAnnotation','Last7DaysApprovalRate','Approve','Reject'], axis=1)
 
 df_1.loc[df_1['Answer.Tag2'] == 4, 'Answer.Tag2'] = "extreme" 
