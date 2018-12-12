@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<title>Natural Disaster Damage Classifier</title>
+<link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<br><center><h1>Natural Disaster Damage Classifier</h1>
+<a href="{{ url_for('upload_file') }}">Upload More Images</a> / 
+<a href="{{ url_for('manage_file') }}">View Heat Map</a>
+<hr>
+<body background="{{url_for('static', filename='bk/nn.png')}}">
+
+<form method="POST" enctype="multipart/form-data">
+    <div class=container"><br>
+        <div class="row align-items-center justify-content-center">
+    <div class="col-md-4">
+    <div class="form-group">
+        <h3>Please Upload an Image:</h3>
+        <br>
+        {{ form.hidden_tag() }}
+        {{ form.photo(multiple="multiple")}} 
+        {% for error in form.photo.errors %}
+        <span style="color: red;">{{ error }}</span>
+         {% endfor %}
+          <br> <br> <br>
+        <h3>Please Specify a Location:</h3><br>
+        {{ form.location }}
+  </div></div></div></div> </br>
+
+    {{ form.submit }}
+</form>
+
+{% if success %}
+<br>
+<p>Upload Success!</p>
+{% endif %}
+</center>
+</html>
