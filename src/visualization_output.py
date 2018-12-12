@@ -2,14 +2,14 @@ import os
 import shutil
 import random
 import os
-from tensorflow_scripts.scripts.label_image import *
+from tf_scripts.scripts.label_image import *
 
 def output(file_name):
     temp_dic = {"mild": 0, "severe": 0, "none": 0}
     count = {"mild": 0, "severe": 0, "none": 0}
 
-    model_file = "tensorflow_scripts/tf_files/retrained_graph.pb"
-    label_file = "tensorflow_scripts/tf_files/retrained_labels.txt"
+    model_file = "tf_scripts/tf_files/retrained_graph.pb"
+    label_file = "tf_scripts/tf_files/retrained_labels.txt"
 
     input_height = 299
     input_width = 299
