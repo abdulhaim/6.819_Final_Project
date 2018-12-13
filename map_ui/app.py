@@ -56,6 +56,7 @@ def prediction(filename, location):
     output_list = []
     image_file = filename
     location_input = location
+    print(location_input)
     predicted_word = output(image_file)
 
     geolocator = Nominatim(user_agent="Natural Disaster")
@@ -81,7 +82,7 @@ def prediction(filename, location):
             color = "yellow"
         else:
             color = "green"
-        layer = gmaps.symbol_layer([(lat,lon)], fill_color=color, stroke_color=color)
+        layer = gmaps.symbol_layer([(lat,lon)], fill_color=color, stroke_color=color,hover_text="location_input")
         fig.add_layer(layer)
 
     pickle.dump(output_list,open( "run_demo.pickle", "wb" ) )
