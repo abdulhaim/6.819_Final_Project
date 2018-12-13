@@ -1,3 +1,5 @@
+# Code modified from this source: https://becominghuman.ai/building-an-image-classifier-using-deep-learning-in-python-totally-from-a-beginners-perspective-be8dbaf22dd8
+
 # Convolutional Neural Network
 
 # Installing Theano
